@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerome & Jessa | Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:#fcf9f3;
+  --cream:#eee3d2;
+  --champagne:#c8ad82;
+  --gold:#a88959;
+  --brown:#594938;
+  --dark:#392f27;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ivory);color:var(--brown);
+  font-family:Montserrat,sans-serif;text-align:center;
+}
+button{font:inherit;cursor:pointer}
+.script{font-family:"Great Vibes",cursive;color:var(--gold)}
+.serif{font-family:"Cormorant Garamond",serif}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);line-height:2}
+.divider{height:1px;width:65px;background:var(--champagne);margin:24px auto}
+.bodycopy{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.6}
+#opening{
+  height:100vh;min-height:600px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse,#fffdf8,#e9dcc7);
+}
+.curtain{
+  position:absolute;top:0;bottom:0;width:52%;z-index:5;
+  background:repeating-linear-gradient(90deg,#9c7956 0px,#c5a77f 18px,#e0c9a6 34px,#a98761 50px);
+  box-shadow:inset 0 0 35px #5e442d66;
+  transition:transform 2s cubic-bezier(.75,0,.2,1);
+}
+.curtain.left{left:0;border-right:4px solid #d9bf98}
+.curtain.right{right:0;border-left:4px solid #d9bf98}
+#opening.open .curtain.left{transform:translateX(-105%)}
+#opening.open .curtain.right{transform:translateX(105%)}
+.opening-content{
+  position:relative;z-index:2;width:min(430px,88vw);
+  padding:35px 20px;background:#fffdf8e8;
+  border:1px solid var(--champagne);
+  box-shadow:0 15px 50px #60482a22;
+}
+.opening-content:before{
+  content:"";position:absolute;inset:7px;border:1px solid #d9c6a5;pointer-events:none;
+}
+.candle-row{display:flex;justify-content:center;gap:55px;margin:15px 0 25px}
+.candle{width:13px;height:58px;background:linear-gradient(90deg,#d8c4a2,#fff8e9,#d2bd99);position:relative;border-radius:4px 4px 2px 2px;box-shadow:0 0 20px #d9ae6480}
+.flame{position:absolute;top:-17px;left:3px;width:8px;height:15px;border-radius:80% 10% 80% 10%;background:#f8bd54;transform:rotate(45deg);box-shadow:0 0 15px #f4b74a;animation:flicker .8s infinite alternate}
+@keyframes flicker{to{transform:rotate(35deg) scale(.8);opacity:.7}}
+.wax{
+  border:0;border-radius:50%;width:72px;height:72px;
+  color:#fff8e9;background:radial-gradient(circle at 35% 30%,#c5a779,#876642);
+  box-shadow:0 4px 12px #4b321f55,inset 0 0 0 2px #e2c99c;
+  font-family:"Cormorant Garamond",serif;font-size:22px;
+  position:relative;z-index:7;
+}
+.wax:hover{transform:scale(1.08)}
+.tap{font-size:9px;letter-spacing:3px;color:var(--gold);margin-top:18px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.4}}
+#opening.open .opening-content{animation:fadeout 1.4s 1s forwards}
+@keyframes fadeout{to{opacity:0;transform:scale(1.08)}}
+#site{display:none;animation:appear 1.2s}
+@keyframes appear{from{opacity:0}to{opacity:1}}
+.page{display:none;min-height:85vh;padding:55px 18px 30px;align-items:center;justify-content:center}
+.page.active{display:flex}
+.frame{
+  width:min(680px,100%);padding:42px 22px;
+  background:#fffdf9;border:1px solid #d8c5a5;
+  outline:1px solid #d8c5a566;outline-offset:6px;
+  margin:auto;
+}
+.frame:before,.frame:after{content:"✧";display:block;color:var(--champagne);font-size:22px;margin:8px}
+.script{font-size:clamp(42px,9vw,65px);margin:15px 0}
+.names{font-family:"Cormorant Garamond",serif;font-size:clamp(38px,9vw,62px);line-height:1.15;color:var(--dark)}
+.amp{font-family:"Great Vibes",cursive;color:var(--champagne);font-size:42px}
+.date{font-family:"Cormorant Garamond",serif;font-size:36px;color:var(--gold);margin:15px}
+.time{font-size:11px;letter-spacing:3px;margin:15px}
+.countdown{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:28px auto}
+.countbox{background:#f8f3ea;border:1px solid #e4d6bf;padding:12px 9px;min-width:68px}
+.countbox strong{display:block;font:30px "Cormorant Garamond",serif;color:var(--gold)}
+.countbox span{font-size:8px;letter-spacing:1px}
+.nav{display:flex;justify-content:center;align-items:center;gap:17px;margin:25px auto}
+.nav button,.goldbtn{
+  background:transparent;border:1px solid var(--champagne);
+  padding:12px 20px;color:var(--brown);font-size:10px;letter-spacing:2px
+}
+.nav button:hover,.goldbtn:hover{background:var(--champagne);color:white}
+#pageNo{font-size:10px;color:var(--gold);letter-spacing:2px}
+.note{font-size:10px;line-height:1.8;color:#8b7b67}
+a{color:var(--gold)}
+/* Outfit inspiration */
+.outfit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px auto;max-width:520px}
+.outfit-card{background:#faf6ef;border:1px solid #e8ddcc;padding:12px 6px 14px}
+.outfit-card svg{width:100%;height:155px;display:block}
+.outfit-card b{font:17px "Cormorant Garamond",serif;color:var(--brown)}
+.outfit-card small{display:block;font-size:9px;color:#8d7b65;margin-top:4px}
+.palette-title{font:25px "Cormorant Garamond",serif;color:var(--gold);margin:20px 0 5px}
+form{max-width:390px;margin:25px auto;text-align:left}
+form label{display:block;font-size:10px;letter-spacing:1px;margin:14px 0 7px}
+form input,form select,form textarea{width:100%;padding:12px;border:1px solid #dfd1ba;background:#fffefa;color:var(--brown)}
+form button{width:100%;margin-top:20px}
+@media(max-width:450px){
+ .frame{padding:32px 14px}
+ .outfit-grid{gap:9px}
+ .outfit-card svg{height:125px}
+ .bodycopy{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<section id="opening">
+  <div class="curtain left"></div>
+  <div class="curtain right"></div>
+  <div class="opening-content">
+    <div class="eyebrow">You are cordially invited</div>
+    <div class="candle-row">
+      <div class="candle"><i class="flame"></i></div>
+      <div class="candle"><i class="flame"></i></div>
+    </div>
+    <div class="script">A celebration of love</div>
+    <div class="names" style="font-size:39px">Jerome <span class="amp">&</span> Jessa</div>
+    <div class="divider"></div>
+    <div class="eyebrow">November 30, 2026</div>
+    <p class="note">A little surprise awaits you</p>
+    <button class="wax" onclick="openCurtains()" aria-label="Open invitation">J ♡ J</button>
+    <div class="tap">TOUCH THE WAX SEAL TO OPEN</div>
+  </div>
+</section>
+
+<main id="site">
+<section class="page active">
+ <div class="frame">
+  <div class="eyebrow">Together with our families</div>
+  <div class="script">The pleasure of your company</div>
+  <div class="bodycopy">is joyfully requested as we celebrate the beginning of our forever.</div>
+  <div class="divider"></div>
+  <div class="names">Jerome <span class="amp">&</span> Jessa</div>
+  <div class="divider"></div>
+  <div class="eyebrow">Are getting married</div>
+  <p class="bodycopy">With love, we invite you to witness our special day.</p>
+ </div>
+</section>
+
+<section class="page">
+ <div class="frame">
+  <div class="eyebrow">Save the date</div>
+  <div class="script">Our Wedding Day</div>
+  <div class="date">November 30, 2026</div>
+  <div class="time">MONDAY · 3:00 IN THE AFTERNOON</div>
+  <div class="divider"></div>
+  <p class="bodycopy">A day filled with love, promises, and the beginning of forever.</p>
+  <div class="countdown" id="countdown">
+   <div class="countbox"><strong id="days">--</strong><span>DAYS</span></div>
+   <div class="countbox"><strong id="hours">--</strong><span>HOURS</span></div>
+   <div class="countbox"><strong id="minutes">--</strong><span>MINUTES</span></div>
+   <div class="countbox"><strong id="seconds">--</strong><span>SECONDS</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="page">
+ <div class="frame">
+  <div class="eyebrow">The celebration</div>
+  <div class="script">Wedding Ceremony</div>
+  <div class="palette-title">Pesa La Pavilion</div>
+  <p class="bodycopy">Bongabon, Nueva Ecija</p>
+  <div class="divider"></div>
+  <div class="date">3:00 PM</div>
+  <p class="bodycopy">November 30, 2026</p>
+  <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pesa+La+Pavilion+Bongabon+Nueva+Ecija">VIEW LOCATION ON MAP ↗</a>
+ </div>
+</section>
+
+<section class="page">
+ <div class="frame">
+  <div class="eyebrow">Our wedding palette</div>
+  <div class="script">Dress Code</div>
+  <p class="bodycopy">Elegant Formal Attire</p>
+  <p class="note">Choose from these colors for a timeless and harmonious celebration.</p>
+
+  <div class="palette-title">For the Gentlemen</div>
+  <p class="note">Formal suits, barong or dress shirt with trousers</p>
+  <div class="outfit-grid">
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Champagne suit illustration">
+     <path d="M48 12 L70 24 L92 12 L112 35 L99 57 L94 145 L46 145 L41 57 L28 35Z" fill="#d8c3a1" stroke="#8f7655" stroke-width="2"/>
+     <path d="M48 12 L70 48 L60 85 L43 53Z" fill="#f8f1e5" stroke="#8f7655"/>
+     <path d="M92 12 L70 48 L81 85 L97 53Z" fill="#f8f1e5" stroke="#8f7655"/>
+     <path d="M70 48 L60 85 L70 98 L81 85Z" fill="#a88959"/>
+     <path d="M60 85 L70 98 L80 85 L77 145 L63 145Z" fill="#fffaf0"/>
+     <path d="M46 145 L94 145 L100 158 L40 158Z" fill="#9d876b"/>
+     <path d="M28 35 L12 75 L25 83 L43 53 M112 35 L128 75 L115 83 L97 53" fill="#d8c3a1" stroke="#8f7655" stroke-width="2"/>
+    </svg>
+    <b>Champagne Beige</b><small>Warm & classic</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Mocha suit illustration">
+     <path d="M48 12 L70 24 L92 12 L112 35 L99 57 L94 145 L46 145 L41 57 L28 35Z" fill="#735b49" stroke="#49382c" stroke-width="2"/>
+     <path d="M48 12 L70 48 L60 85 L43 53Z" fill="#f6eee1"/>
+     <path d="M92 12 L70 48 L81 85 L97 53Z" fill="#f6eee1"/>
+     <path d="M70 48 L60 85 L70 98 L81 85Z" fill="#c5a779"/>
+     <path d="M60 85 L70 98 L80 85 L77 145 L63 145Z" fill="#fffaf0"/>
+     <path d="M46 145 L94 145 L100 158 L40 158Z" fill="#44382f"/>
+     <path d="M28 35 L12 75 L25 83 L43 53 M112 35 L128 75 L115 83 L97 53" fill="#735b49" stroke="#49382c" stroke-width="2"/>
+    </svg>
+    <b>Mocha Brown</b><small>Rich & refined</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Taupe suit illustration">
+     <path d="M48 12 L70 24 L92 12 L112 35 L99 57 L94 145 L46 145 L41 57 L28 35Z" fill="#a58d75" stroke="#77634e" stroke-width="2"/>
+     <path d="M48 12 L70 48 L60 85 L43 53Z" fill="#f8f1e5"/>
+     <path d="M92 12 L70 48 L81 85 L97 53Z" fill="#f8f1e5"/>
+     <path d="M70 48 L60 85 L70 98 L81 85Z" fill="#594938"/>
+     <path d="M60 85 L70 98 L80 85 L77 145 L63 145Z" fill="#fffaf0"/>
+     <path d="M46 145 L94 145 L100 158 L40 158Z" fill="#665342"/>
+     <path d="M28 35 L12 75 L25 83 L43 53 M112 35 L128 75 L115 83 L97 53" fill="#a58d75" stroke="#77634e" stroke-width="2"/>
+    </svg>
+    <b>Taupe</b><small>Soft & sophisticated</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Charcoal suit illustration">
+     <path d="M48 12 L70 24 L92 12 L112 35 L99 57 L94 145 L46 145 L41 57 L28 35Z" fill="#45413f" stroke="#292725" stroke-width="2"/>
+     <path d="M48 12 L70 48 L60 85 L43 53Z" fill="#f6f0e6"/>
+     <path d="M92 12 L70 48 L81 85 L97 53Z" fill="#f6f0e6"/>
+     <path d="M70 48 L60 85 L70 98 L81 85Z" fill="#a88959"/>
+     <path d="M60 85 L70 98 L80 85 L77 145 L63 145Z" fill="#fffaf0"/>
+     <path d="M46 145 L94 145 L100 158 L40 158Z" fill="#292725"/>
+     <path d="M28 35 L12 75 L25 83 L43 53 M112 35 L128 75 L115 83 L97 53" fill="#45413f" stroke="#292725" stroke-width="2"/>
+    </svg>
+    <b>Charcoal</b><small>Modern & timeless</small>
+   </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="palette-title">For the Ladies</div>
+  <p class="note">Elegant gowns and formal dresses</p>
+  <div class="outfit-grid">
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Dusty rose gown illustration">
+     <circle cx="70" cy="17" r="10" fill="#d9b79c"/>
+     <path d="M59 31 Q70 42 81 31 L92 57 L115 148 Q70 160 25 148 L48 57Z" fill="#c99a9a" stroke="#936d70" stroke-width="2"/>
+     <path d="M59 31 Q70 42 81 31 L86 55 L54 55Z" fill="#f7e8e2"/>
+     <path d="M48 57 L92 57" stroke="#f4dfd9" stroke-width="3"/>
+     <path d="M70 57 L70 145" stroke="#e9c2c1" stroke-width="2"/>
+    </svg>
+    <b>Dusty Rose</b><small>Romantic & soft</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Mauve gown illustration">
+     <circle cx="70" cy="17" r="10" fill="#d9b79c"/>
+     <path d="M59 31 Q70 42 81 31 L92 57 L115 148 Q70 160 25 148 L48 57Z" fill="#a98791" stroke="#755761" stroke-width="2"/>
+     <path d="M59 31 Q70 42 81 31 L86 55 L54 55Z" fill="#f7e8e9"/>
+     <path d="M48 57 L92 57" stroke="#e7cbd1" stroke-width="3"/>
+     <path d="M70 57 L70 145" stroke="#d9b8c1" stroke-width="2"/>
+    </svg>
+    <b>Mauve</b><small>Elegant & graceful</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Mocha gown illustration">
+     <circle cx="70" cy="17" r="10" fill="#d9b79c"/>
+     <path d="M59 31 Q70 42 81 31 L92 57 L115 148 Q70 160 25 148 L48 57Z" fill="#8b6b55" stroke="#654a38" stroke-width="2"/>
+     <path d="M59 31 Q70 42 81 31 L86 55 L54 55Z" fill="#f3e7d7"/>
+     <path d="M48 57 L92 57" stroke="#d8b99c" stroke-width="3"/>
+     <path d="M70 57 L70 145" stroke="#c3a184" stroke-width="2"/>
+    </svg>
+    <b>Mocha</b><small>Warm & luxurious</small>
+   </div>
+   <div class="outfit-card">
+    <svg viewBox="0 0 140 160" aria-label="Sage gown illustration">
+     <circle cx="70" cy="17" r="10" fill="#d9b79c"/>
+     <path d="M59 31 Q70 42 81 31 L92 57 L115 148 Q70 160 25 148 L48 57Z" fill="#a8ad96" stroke="#6f7965" stroke-width="2"/>
+     <path d="M59 31 Q70 42 81 31 L86 55 L54 55Z" fill="#f4f1e4"/>
+     <path d="M48 57 L92 57" stroke="#e3e4d0" stroke-width="3"/>
+     <path d="M70 57 L70 145" stroke="#d1d6bf" stroke-width="2"/>
+    </svg>
+    <b>Sage Green</b><small>Natural & graceful</small>
+   </div>
+  </div>
+  <p class="note">Kindly avoid white and ivory, as these are reserved for the bride.</p>
+ </div>
+</section>
+
+<section class="page">
+ <div class="frame">
+  <div class="eyebrow">Kindly respond</div>
+  <div class="script">Will you join us?</div>
+  <p class="bodycopy">We would be delighted to celebrate with you.</p>
+  <form id="rsvp">
+   <label for="guest">YOUR FULL NAME</label>
+   <input id="guest" required placeholder="Enter your name">
+   <label for="attendance">WILL YOU ATTEND?</label>
+   <select id="attendance" required>
+    <option value="">Please select</option>
+    <option>Joyfully accepts</option>
+    <option>Regretfully declines</option>
+   </select>
+   <label for="number">NUMBER OF GUESTS INCLUDING YOU</label>
+   <select id="number"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+   <label for="message">MESSAGE (OPTIONAL)</label>
+   <textarea id="message" rows="3" placeholder="Your message..."></textarea>
+   <button class="goldbtn" type="submit">SEND RSVP</button>
+  </form>
+  <p class="note">Thank you for being part of our special day.</p>
+ </div>
+</section>
+
+<section class="page">
+ <div class="frame">
+  <div class="eyebrow">With all our love</div>
+  <div class="script">Thank you</div>
+  <div class="names">Jerome <span class="amp">&</span> Jessa</div>
+  <div class="divider"></div>
+  <p class="bodycopy">We can't wait to celebrate our forever with you.</p>
+  <div class="script" style="font-size:43px">See you there!</div>
+ </div>
+</section>
+
+<div class="nav">
+ <button id="prev" onclick="move(-1)">PREVIOUS</button>
+ <span id="pageNo">01 / 06</span>
+ <button id="next" onclick="move(1)">NEXT</button>
+</div>
+</main>
+
+<script>
+function openCurtains(){
+ const opening=document.getElementById('opening');
+ opening.classList.add('open');
+ setTimeout(()=>{
+  opening.style.display='none';
+  document.getElementById('site').style.display='block';
+  showPage(0);
+ },2300);
+}
+let current=0;
+const pages=document.querySelectorAll('.page');
+function showPage(n){
+ current=Math.max(0,Math.min(n,pages.length-1));
+ pages.forEach((p,i)=>p.classList.toggle('active',i===current));
+ document.getElementById('pageNo').textContent=
+  String(current+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0');
+ document.getElementById('prev').style.visibility=current===0?'hidden':'visible';
+ document.getElementById('next').textContent=current===pages.length-1?'BACK TO START':'NEXT';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function move(d){
+ if(current===pages.length-1 && d===1)showPage(0);
+ else showPage(current+d);
+}
+const wedding=new Date('2026-11-30T15:00:00+08:00').getTime();
+function countdown(){
+ const diff=wedding-Date.now();
+ if(diff<=0){
+  document.getElementById('countdown').innerHTML='Today is our special day! ♡';
+  return;
+ }
+ document.getElementById('days').textContent=Math.floor(diff/86400000);
+ document.getElementById('hours').textContent=Math.floor(diff/3600000)%24;
+ document.getElementById('minutes').textContent=Math.floor(diff/60000)%60;
+ document.getElementById('seconds').textContent=Math.floor(diff/1000)%60;
+}
+countdown();setInterval(countdown,1000);
+
+/* RSVP email: replace with your own email address */
+document.getElementById('rsvp').addEventListener('submit',function(e){
+ e.preventDefault();
+ const email='YOUR_EMAIL@example.com';
+ const subject=encodeURIComponent('Wedding RSVP - Jerome & Jessa');
+ const body=encodeURIComponent(
+  'Name: '+document.getElementById('guest').value+
+  '\nAttendance: '+document.getElementById('attendance').value+
+  '\nGuests: '+document.getElementById('number').value+
+  '\nMessage: '+document.getElementById('message').value
+ );
+ window.location.href='mailto:'+email+'?subject='+subject+'&body='+body;
+});
+</script>
+</body>
+</html>
